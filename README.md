@@ -11,7 +11,11 @@ NodeJS Express로 서버를 구축한 뒤, Socket.io Server API를 사용해 iOS
 * Swift
 * Socket.io Client
 
-#실행 이미지
-|룸 생성|룸 연결|채팅|
-|:-:|:-:|:-:|
-|![룸 생성](https://user-images.githubusercontent.com/77890228/145440368-cb85d7d9-6c91-46c2-adc4-29a101ebe0f6.png){: width="100" height="300"}|![룸 연결](https://user-images.githubusercontent.com/77890228/145440391-2feed011-03cc-4937-ae85-9a5a1541de3d.png){: width="100" height="300"}|![채팅](https://user-images.githubusercontent.com/77890228/145440402-227a96b0-be2d-4e04-b991-101aff751be9.jpg){: width="100" height="300"}|
+## 실행 이미지
+### 룸 생성
+![socket1](https://user-images.githubusercontent.com/77890228/145444224-4da67232-1835-457b-98df-1ded3890965b.jpg)
+### 룸 연결 및 입장
+![socket2](https://user-images.githubusercontent.com/77890228/145444254-1a9585ac-990d-41d4-946c-f3c56413b9bf.jpg)
+### 
+![socket3](https://user-images.githubusercontent.com/77890228/145444295-60afffbe-aae8-44d6-b639-858abd88a517.jpg)
+
