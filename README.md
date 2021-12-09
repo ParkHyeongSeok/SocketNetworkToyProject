@@ -1,4 +1,4 @@
-# SocketIOToyProject
+# Socket Network Toy Project
 
 ## 프로젝트 설명
 NodeJS Express로 서버를 구축한 뒤, Socket.io Server API를 사용해 iOS Client와 통신하는 채팅앱 구현
