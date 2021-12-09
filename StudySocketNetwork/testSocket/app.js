@@ -6,18 +6,20 @@ const io = require('socket.io')(http);
 
 var port = 3000;
 
-// 연결되어 있는 동안 유지될 rooms
+// 서버가 연결되어 있는 동안 유지될 rooms
 let rooms = [];
 
 io.on('connection', (socket) => {
     console.log('connection socketIO')
 
+    // 임시 유저
+    var user;
     socket.emit('isConnected', user)
 
     io.emit('rooms', rooms)
 
     socket.on('disconnect', () => {
-        socket.emit('isConnected', user)
+        socket.emit('disConnected', user)
         console.log('disconnection socketIO')
     })
 
