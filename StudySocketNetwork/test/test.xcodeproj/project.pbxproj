@@ -13,6 +13,7 @@
 		240FD24026B26DE700253683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 240FD23F26B26DE700253683 /* Assets.xcassets */; };
 		240FD24326B26DE700253683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240FD24126B26DE700253683 /* LaunchScreen.storyboard */; };
 		240FD25326B26ECD00253683 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FD25226B26ECD00253683 /* SocketIOManager.swift */; };
+		242B21732781EF7B0025D9F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B21722781EF7B0025D9F8 /* LoginViewController.swift */; };
 		2459ACBB26B5239D0025FE9B /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACBA26B5239D0025FE9B /* DummyData.swift */; };
 		2459ACBE26B59DB90025FE9B /* RoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACBD26B59DB90025FE9B /* RoomsTableViewController.swift */; };
 		2459ACC326B59E280025FE9B /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACC226B59E280025FE9B /* Room.swift */; };
@@ -32,6 +33,7 @@
 		240FD24226B26DE700253683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		240FD24426B26DE700253683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		240FD25226B26ECD00253683 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		242B21722781EF7B0025D9F8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2459ACBA26B5239D0025FE9B /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		2459ACBD26B59DB90025FE9B /* RoomsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsTableViewController.swift; sourceTree = "<group>"; };
 		2459ACC226B59E280025FE9B /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				2459ACBD26B59DB90025FE9B /* RoomsTableViewController.swift */,
 				2459ACD226B6EE420025FE9B /* ChatViewController.swift */,
 				2459ACDE26B7D93F0025FE9B /* HeaderReusableView.swift */,
+				242B21722781EF7B0025D9F8 /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				240FD23726B26DE500253683 /* AppDelegate.swift in Sources */,
 				24A5563A26B510270020ED96 /* Chat.swift in Sources */,
 				2459ACD326B6EE420025FE9B /* ChatViewController.swift in Sources */,
+				242B21732781EF7B0025D9F8 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
