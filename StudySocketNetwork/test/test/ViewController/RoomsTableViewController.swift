@@ -39,11 +39,8 @@ class RoomsTableViewController: UITableViewController {
         }
         
         let okAction = UIAlertAction(title: "생성", style: .default) { (action) in
-            
             guard let text = alert.textFields?[0].text else { return }
-            
             let newRoom = Room(roomID: UUID().uuidString, roomTitle: text, createDate: Double(Date().timeIntervalSince1970))
-            
             SocketIOManager.shared.createRoom(room: newRoom)
             
 //            let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -55,16 +52,12 @@ class RoomsTableViewController: UITableViewController {
             vc.room = newRoom
             self.present(vc, animated: true, completion: nil)
         }
-        
         let cancelAction = UIAlertAction(title: "취소", style: .destructive) { (action) in
             self.dismiss(animated: true, completion: nil)
         }
-        
         alert.addAction(okAction)
         alert.addAction(cancelAction)
-        
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     func dateToString(date: Date) -> String {

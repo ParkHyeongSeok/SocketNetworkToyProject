@@ -84,17 +84,11 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     }
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        
         guard let room = room else { return }
-        
         let user = DummyData.shared.currentUser
-        
         let newChat = Chat(sender: user, messageId: UUID().uuidString, sentDate: Date(), kind: .text(text), content: text)
-        
         SocketIOManager.shared.sendMessage(room: room, chat: newChat, user: DummyData.shared.currentUser)
-        
         inputBar.inputTextView.text = ""
-        
     }
     
 }

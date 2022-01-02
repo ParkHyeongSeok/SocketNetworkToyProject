@@ -134,4 +134,8 @@ class SocketIOManager: NSObject {
         socket.emit("leaveRoom", myRoom, user)
     }
     
+    func loginUser(senderID: String) {
+        socket.emit("fetchUser", senderID)
+    }
+    
 }

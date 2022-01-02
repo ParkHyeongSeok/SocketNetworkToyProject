@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -140,14 +141,78 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="y7q-0H-3ZY" kind="relationship" relationship="rootViewController" id="DRs-jx-SK1"/>
+                        <segue destination="ioc-tl-86e" kind="relationship" relationship="rootViewController" id="q7R-GU-3qv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehg-kq-N28" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-524" y="32"/>
+            <point key="canvasLocation" x="-1141" y="31"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="V5m-64-8Ko">
+            <objects>
+                <viewController id="ioc-tl-86e" customClass="LoginViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w6A-VG-PMq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="uLN-GZ-Ifv">
+                                <rect key="frame" x="132" y="368" width="150" height="160"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVm-3N-Uxi">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.81872124189999995" blue="0.28805528159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="cFx-jc-ScN"/>
+                                            <constraint firstAttribute="height" constant="50" id="xIX-D0-Qum"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="형석으로 로그인"/>
+                                        <connections>
+                                            <action selector="HSLoginButtonTapped:" destination="ioc-tl-86e" eventType="touchUpInside" id="cvp-7D-9Wu"/>
+                                            <segue destination="y7q-0H-3ZY" kind="show" id="vs7-b6-tu5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHZ-4m-WAN">
+                                        <rect key="frame" x="0.0" y="110" width="150" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.81872124189999995" blue="0.28805528159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="K7W-fN-594"/>
+                                            <constraint firstAttribute="height" constant="50" id="hgx-Rm-sZS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="선아로 로그인"/>
+                                        <connections>
+                                            <action selector="SALoginButtonTapped:" destination="ioc-tl-86e" eventType="touchUpInside" id="uA5-53-ZBZ"/>
+                                            <segue destination="y7q-0H-3ZY" kind="show" id="3ZT-DS-OhH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mLe-HV-yBV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uLN-GZ-Ifv" firstAttribute="centerY" secondItem="w6A-VG-PMq" secondAttribute="centerY" id="Erz-XQ-buP"/>
+                            <constraint firstItem="uLN-GZ-Ifv" firstAttribute="centerX" secondItem="w6A-VG-PMq" secondAttribute="centerX" id="aQD-nT-nAz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tkq-PZ-NlM"/>
+                    <connections>
+                        <outlet property="HSButton" destination="vVm-3N-Uxi" id="zBZ-QJ-cXF"/>
+                        <outlet property="SAButton" destination="MHZ-4m-WAN" id="Cem-EH-V5X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VEb-a8-DoS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-391" y="31"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3ZT-DS-OhH"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
