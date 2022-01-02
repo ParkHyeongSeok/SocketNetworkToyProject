@@ -27,9 +27,14 @@ class SocketIOManager: NSObject {
         }
     }
     
+    var currentUser: User? {
+        didSet {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "userUpdate"), object: currentUser)
+        }
+    }
+    
     override init() {
         super.init()
-        
         self.socket = manager.defaultSocket
         
         socket.on("rooms") { data, ack in
@@ -55,6 +60,12 @@ class SocketIOManager: NSObject {
             
             self.chats.append(chat)
             
+        }
+        
+        socket.on("currentUser") { data, ack in
+            let userDic = data[0] as? [String:Any] ?? [:]
+            let user = User(senderId: userDic["senderId"] as? String ?? "", displayName: userDic["displayName"] as? String ?? "")
+            self.currentUser = user
         }
     }
     
