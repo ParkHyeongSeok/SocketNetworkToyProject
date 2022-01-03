@@ -8,7 +8,9 @@
 import Foundation
 import MessageKit
 
-class Chat: MessageType {
+class Chat: MessageType, Mapper {
+    typealias DTO = ChatDTO
+    
     var sender: SenderType
     var messageId: String
     var sentDate: Date
@@ -24,6 +26,15 @@ class Chat: MessageType {
         self.messageId = messageId
         self.sentDate = sentDate
         self.kind = kind
+    }
+    
+    func mapping() -> DTO? {
+        switch self.kind {
+        case .text(let content):
+            return ChatDTO(sender: self.sender.toDTO(), messageId: self.messageId, sentDate: self.sentDate.timeIntervalSince1970, content: content)
+        default:
+            return nil
+        }
     }
 }
 

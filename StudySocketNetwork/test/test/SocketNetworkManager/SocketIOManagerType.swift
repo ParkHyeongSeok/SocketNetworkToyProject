@@ -13,4 +13,8 @@ protocol SocketIOManagerType {
     var allRooms: PublishSubject<[Room]> { get set }
     var currentUser: PublishSubject<User> { get set }
     var message: PublishSubject<String?> { get set }
+    func loginUser(senderID: String)
+    func createRoom(room: Room)
+    func joinRoom(room: Room, user: User)
+    func leaveRoom(room: Room, user: User)
 }

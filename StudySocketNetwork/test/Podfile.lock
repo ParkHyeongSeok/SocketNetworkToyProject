@@ -7,6 +7,9 @@ PODS:
     - InputBarAccessoryView (~> 4.3.0)
   - "NSObject+Rx (5.2.2)":
     - RxSwift (~> 6.2)
+  - ReactorKit (3.1.0):
+    - RxSwift (~> 6.0)
+    - WeakMapTable (~> 1.1)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
@@ -23,10 +26,12 @@ PODS:
   - Socket.IO-Client-Swift (16.0.1):
     - Starscream (~> 4.0)
   - Starscream (4.0.4)
+  - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
   - MessageKit
   - "NSObject+Rx"
+  - ReactorKit
   - RxCocoa
   - RxDataSources
   - RxSwift
@@ -39,6 +44,7 @@ SPEC REPOS:
     - InputBarAccessoryView
     - MessageKit
     - "NSObject+Rx"
+    - ReactorKit
     - RxCocoa
     - RxDataSources
     - RxRelay
@@ -46,12 +52,14 @@ SPEC REPOS:
     - SDWebImage
     - Socket.IO-Client-Swift
     - Starscream
+    - WeakMapTable
 
 SPEC CHECKSUMS:
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   InputBarAccessoryView: 8e7fc09e9cba75e0fee5da13450e15c194806f69
   MessageKit: a3e612a54a24f5d9ca0295760749b481afd3f2da
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
+  ReactorKit: a06dd2a5c9339287aedf3dc821cfab6347eca106
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
@@ -59,7 +67,8 @@ SPEC CHECKSUMS:
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   Socket.IO-Client-Swift: c116d6dc9fd6be9c259bacfe143f8725bce7d79e
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
+  WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 96326359c3070f8f20698aff3283ddb8be83b478
+PODFILE CHECKSUM: ad53a2b437e9338204617aaec51c845bc9ba39ab
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

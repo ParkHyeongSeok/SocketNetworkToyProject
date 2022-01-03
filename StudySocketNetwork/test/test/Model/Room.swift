@@ -7,7 +7,9 @@
 
 import Foundation
 
-class Room {
+class Room: Mapper {
+    typealias DTO = RoomDTO
+    
     let roomID: String
     var roomTitle: String
     var createDate: Double
@@ -23,6 +25,10 @@ class Room {
         self.roomTitle = roomTitle
         self.createDate = createDate
         self.chats = chats
+    }
+    
+    func mapping() -> DTO? {
+        return RoomDTO(roomID: self.roomID, roomTitle: self.roomTitle, createDate: self.createDate, chats: self.chats.compactMap { $0.mapping() })
     }
     
     func addChat(chat: Chat) {
