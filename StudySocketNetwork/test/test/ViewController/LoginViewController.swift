@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         HSButton.layer.cornerRadius = 10
         SAButton.layer.cornerRadius = 10
-        MockSocketIOManager.shared.fetchAllRooms
+        MockSocketIOManager.shared.allRooms
             .bind(onNext: { rooms in
                 if let room = rooms.first {
                     print(room.roomTitle)

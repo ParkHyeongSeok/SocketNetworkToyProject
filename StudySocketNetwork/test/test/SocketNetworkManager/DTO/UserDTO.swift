@@ -23,8 +23,4 @@ extension SenderType {
     func toDomain() -> User {
         return User(senderId: self.senderId, displayName: self.displayName)
     }
-    
-    func toDTO() -> UserDTO {
-        return UserDTO(senderId: self.senderId, displayName: self.displayName)
-    }
 }

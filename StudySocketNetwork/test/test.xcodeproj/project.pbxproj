@@ -22,7 +22,6 @@
 		244FF8582783098300AAC613 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF8572783098300AAC613 /* UserDTO.swift */; };
 		244FF85B2783098B00AAC613 /* ChatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF85A2783098B00AAC613 /* ChatDTO.swift */; };
 		244FF86027830C0900AAC613 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF85F27830C0900AAC613 /* RoomViewModel.swift */; };
-		244FF86427830CDF00AAC613 /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF86327830CDF00AAC613 /* LoginReactor.swift */; };
 		2459ACBB26B5239D0025FE9B /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACBA26B5239D0025FE9B /* DummyData.swift */; };
 		2459ACBE26B59DB90025FE9B /* RoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACBD26B59DB90025FE9B /* RoomsTableViewController.swift */; };
 		2459ACC326B59E280025FE9B /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACC226B59E280025FE9B /* Room.swift */; };
@@ -50,7 +49,6 @@
 		244FF8572783098300AAC613 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		244FF85A2783098B00AAC613 /* ChatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDTO.swift; sourceTree = "<group>"; };
 		244FF85F27830C0900AAC613 /* RoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
-		244FF86327830CDF00AAC613 /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
 		2459ACBA26B5239D0025FE9B /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		2459ACBD26B59DB90025FE9B /* RoomsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsTableViewController.swift; sourceTree = "<group>"; };
 		2459ACC226B59E280025FE9B /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 		244FF85E27830BA000AAC613 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				244FF86327830CDF00AAC613 /* LoginReactor.swift */,
 				244FF85F27830C0900AAC613 /* RoomViewModel.swift */,
 			);
 			path = ViewModel;
@@ -342,7 +339,6 @@
 				2459ACD326B6EE420025FE9B /* ChatViewController.swift in Sources */,
 				242B21732781EF7B0025D9F8 /* LoginViewController.swift in Sources */,
 				244FF85B2783098B00AAC613 /* ChatDTO.swift in Sources */,
-				244FF86427830CDF00AAC613 /* LoginReactor.swift in Sources */,
 				036184DC278328F600F1F16B /* Mapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -107,11 +107,7 @@ class SocketIOManager: NSObject {
             "displayName": user.displayName
         ]
         
-        let myChat: [String:Any] = [
-            "sender": sentUser,
-//            "content": chat.content,
-            "timestamp": chat.sentDate.timeIntervalSince1970
-        ]
+
         
         let myRoom: [String:Any] = [
             "roomID": room.roomID,
@@ -144,10 +140,7 @@ class SocketIOManager: NSObject {
             "roomDate": room.createDate
         ]
         
-        let user: [String:Any] = [
-            "senderId": user.senderId,
-            "displayName": user.displayName
-        ]
+        
         
         socket.emit("joinRoom", myRoom, user)
     }

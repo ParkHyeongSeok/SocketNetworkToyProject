@@ -8,31 +8,20 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import ReactorKit
 
-class RoomReactor: Reactor {
+class RoomViewModel {
     
-    enum Action {
-        
+    private let socketIOManager: SocketIOManagerType = MockSocketIOManager()
+    
+    var currentUser: Driver<User> {
+        return socketIOManager.currentUser.asDriver(onErrorJustReturn: DummyData.shared.currentUser)
     }
     
-    enum Mutation {
-        
+    var rooms: Driver<[Room]> {
+        return socketIOManager.allRooms.asDriver(onErrorJustReturn: [])
     }
     
-    struct State {
-        
-    }
-    
-    let initialState: State
-    
-    init() {
-        self.initialState = State()
-    }
-    
-    let manager = MockSocketIOManager.shared
-    
-    func createRoom() {
+    func createRoom(roomName: String) {
         
     }
     

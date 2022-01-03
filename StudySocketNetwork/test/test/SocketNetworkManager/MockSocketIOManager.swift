@@ -68,48 +68,15 @@ class MockSocketIOManager: NSObject, SocketIOManagerType {
         socket.emit("fetchUser", senderID)
     }
     
-    func createRoom(room: Room) {
-        
-        let myRoom: [String:Any] = [
-            "roomID": room.roomID,
-            "roomTitle": room.roomTitle,
-            "roomDate": room.createDate
-        ]
-        
-        socket.emit("createRoom", myRoom)
+    func createRoom(room: [String:Any]) {
+        socket.emit("createRoom", room)
     }
     
-    func joinRoom(room: Room, user: User) {
-        
-        let myRoom: [String:Any] = [
-            "roomID": room.roomID,
-            "roomTitle": room.roomTitle,
-            "roomDate": room.createDate
-        ]
-        
-        let user: [String:Any] = [
-            "senderId": user.senderId,
-            "displayName": user.displayName
-        ]
-        
-        socket.emit("joinRoom", myRoom, user)
+    func joinRoom(room: [String:Any], user: [String:Any]) {
+        socket.emit("joinRoom", room, user)
     }
     
-    func leaveRoom(room: Room, user: User) {
-        
-        let myRoom: [String:Any] = [
-            "roomID": room.roomID,
-            "roomTitle": room.roomTitle,
-            "roomDate": room.createDate
-        ]
-        
-        let user: [String:Any] = [
-            "senderId": user.senderId,
-            "displayName": user.displayName
-        ]
-        
-        socket.emit("leaveRoom", myRoom, user)
+    func leaveRoom(room: [String:Any], user: [String:Any]) {
+        socket.emit("leaveRoom", room, user)
     }
-    
-    
 }

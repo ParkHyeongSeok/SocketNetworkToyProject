@@ -9,6 +9,5 @@ import Foundation
 import MessageKit
 
 protocol Mapper {
-    associatedtype DTO
-    func mapping() -> DTO?
+    func mapping() -> [String:Any]
 }

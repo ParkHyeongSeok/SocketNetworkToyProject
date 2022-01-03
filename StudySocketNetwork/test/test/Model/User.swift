@@ -8,9 +8,7 @@
 import Foundation
 import MessageKit
 
-class User: SenderType, Mapper {
-    typealias DTO = UserDTO
-    
+class User: SenderType {
     var senderId: String
     var displayName: String
     
@@ -21,8 +19,27 @@ class User: SenderType, Mapper {
         self.senderId = senderId
         self.displayName = displayName
     }
-    
-    func mapping() -> DTO? {
-        return UserDTO(senderId: self.senderId, displayName: self.displayName)
+}
+
+extension User: Mapper {
+    func mapping() -> [String:Any] {
+        let user: [String:Any] =
+        [
+            "senderId": self.senderId,
+            "displayName": self.displayName
+        ]
+        return user
+        
+    }
+}
+
+extension SenderType {
+    func mapping() -> [String:Any] {
+        let user: [String:Any] =
+        [
+            "senderId": self.senderId,
+            "displayName": self.displayName
+        ]
+        return user
     }
 }

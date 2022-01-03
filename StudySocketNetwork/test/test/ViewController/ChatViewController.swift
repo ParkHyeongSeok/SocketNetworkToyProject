@@ -12,33 +12,15 @@ import SDWebImage
 
 class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, InputBarAccessoryViewDelegate {
     
-    var room: Room?
-    var currentUser: User?
-    var chats = [Chat]()
+    var room: Room!
+    var currentUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(updateChats(_:)), name: NSNotification.Name("chatsUpdate"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUser(_:)), name: NSNotification.Name("userUpdate"), object: nil)
-    }
-    
-    // MARK: - Action
-    
-    @objc func updateChats(_ notification: Notification) {
-        self.chats =  notification.object as? [Chat] ?? []
-        messagesCollectionView.reloadData()
-    }
-    
-    @objc func updateUser(_ notification: Notification) {
-        let user = notification.object as! User
-        self.currentUser = user
     }
     
     // MARK: - Messages Delegate Methods
@@ -75,18 +57,19 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-        return chats[indexPath.section]
+        return self.room.chats[indexPath.section]
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-        return chats.count
+        return self.room.chats.count
     }
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        guard let room = room else { return }
-        guard let user = self.currentUser else { return }
-        let newChat = Chat(sender: user, messageId: UUID().uuidString, sentDate: Date(), kind: .text(text))
-        SocketIOManager.shared.sendMessage(room: room, chat: newChat, user: user)
+        let newChat = Chat(sender: self.currentUser, messageId: UUID().uuidString, sentDate: Date(), kind: .text(text))
+        self.room.addChat(chat: newChat)
+        self.messagesCollectionView.reloadData()
+        
+        SocketIOManager.shared.sendMessage(room: self.room, chat: newChat, user: self.currentUser)
         inputBar.inputTextView.text = ""
     }
     
