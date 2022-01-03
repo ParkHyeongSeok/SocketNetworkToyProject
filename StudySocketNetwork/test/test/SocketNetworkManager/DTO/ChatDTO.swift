@@ -20,7 +20,4 @@ extension ChatDTO {
         let date = Date(timeIntervalSince1970: TimeInterval(self.sentDate))
         return Chat(sender: user, messageId: self.messageId, sentDate: date, kind: .text(self.content))
     }
-    func toDTO(entity: Chat) -> ChatDTO {
-        let userDTO = entity.sender.toDTO(entity: <#T##User#>)
-        return ChatDTO(sender: <#T##UserDTO#>, messageId: <#T##String#>, sentDate: <#T##Double#>, content: <#T##String#>)    }
 }

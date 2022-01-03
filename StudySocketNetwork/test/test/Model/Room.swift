@@ -24,8 +24,22 @@ class Room {
         self.createDate = createDate
         self.chats = chats
     }
-    
+  
     func addChat(chat: Chat) {
         chats.append(chat)
+    }
+}
+
+extension Room: Mapper {
+    func mapping() -> [String:Any] {
+        let room: [String:Any] =
+        [
+            "roomID": self.roomID,
+            "roomTitle": self.roomTitle,
+            "createDate": self.createDate,
+            "chats": self.chats.map { $0.mapping() }
+            
+        ]
+        return room
     }
 }

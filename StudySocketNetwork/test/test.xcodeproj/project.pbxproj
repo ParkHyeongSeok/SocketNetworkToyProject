@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		036184DC278328F600F1F16B /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036184DB278328F500F1F16B /* Mapper.swift */; };
 		0F2A74E9BD919513604C4C6D /* Pods_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C264E2688D16443FBCC12D2 /* Pods_test.framework */; };
 		240FD23726B26DE500253683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FD23626B26DE500253683 /* AppDelegate.swift */; };
 		240FD23E26B26DE500253683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240FD23C26B26DE500253683 /* Main.storyboard */; };
@@ -20,10 +21,7 @@
 		242B21992782D3120025D9F8 /* MockSocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B21982782D3120025D9F8 /* MockSocketIOManager.swift */; };
 		244FF8582783098300AAC613 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF8572783098300AAC613 /* UserDTO.swift */; };
 		244FF85B2783098B00AAC613 /* ChatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF85A2783098B00AAC613 /* ChatDTO.swift */; };
-		244FF86027830C0900AAC613 /* ManagerRoomsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF85F27830C0900AAC613 /* ManagerRoomsUseCase.swift */; };
-		244FF86427830CDF00AAC613 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF86327830CDF00AAC613 /* SignInUseCase.swift */; };
-		244FF87827830FC300AAC613 /* RoomRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF87727830FC300AAC613 /* RoomRepository.swift */; };
-		244FF87C27830FF200AAC613 /* RoomRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF87B27830FF200AAC613 /* RoomRepositoryType.swift */; };
+		244FF86027830C0900AAC613 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF85F27830C0900AAC613 /* RoomViewModel.swift */; };
 		2459ACBB26B5239D0025FE9B /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACBA26B5239D0025FE9B /* DummyData.swift */; };
 		2459ACBE26B59DB90025FE9B /* RoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACBD26B59DB90025FE9B /* RoomsTableViewController.swift */; };
 		2459ACC326B59E280025FE9B /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACC226B59E280025FE9B /* Room.swift */; };
@@ -34,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		036184DB278328F500F1F16B /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		0C264E2688D16443FBCC12D2 /* Pods_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		240FD23326B26DE500253683 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		240FD23626B26DE500253683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,10 +48,7 @@
 		242B21982782D3120025D9F8 /* MockSocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSocketIOManager.swift; sourceTree = "<group>"; };
 		244FF8572783098300AAC613 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		244FF85A2783098B00AAC613 /* ChatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDTO.swift; sourceTree = "<group>"; };
-		244FF85F27830C0900AAC613 /* ManagerRoomsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerRoomsUseCase.swift; sourceTree = "<group>"; };
-		244FF86327830CDF00AAC613 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
-		244FF87727830FC300AAC613 /* RoomRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRepository.swift; sourceTree = "<group>"; };
-		244FF87B27830FF200AAC613 /* RoomRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRepositoryType.swift; sourceTree = "<group>"; };
+		244FF85F27830C0900AAC613 /* RoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
 		2459ACBA26B5239D0025FE9B /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		2459ACBD26B59DB90025FE9B /* RoomsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsTableViewController.swift; sourceTree = "<group>"; };
 		2459ACC226B59E280025FE9B /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -107,9 +103,9 @@
 			children = (
 				240FD23626B26DE500253683 /* AppDelegate.swift */,
 				242B217A2782C2430025D9F8 /* API */,
-				244FF87A27830FD100AAC613 /* Data */,
-				244FF87F27830FFF00AAC613 /* RepositoryProtocol */,
-				244FF85E27830BA000AAC613 /* Domain */,
+				242B217C2782CE100025D9F8 /* SocketNetworkManager */,
+				24A5563726B510060020ED96 /* Model */,
+				244FF85E27830BA000AAC613 /* ViewModel */,
 				24A5564626B511E20020ED96 /* ViewController */,
 				24A5564326B511890020ED96 /* Storyboard */,
 				242B2176278267CC0025D9F8 /* View */,
@@ -141,6 +137,7 @@
 				242B21862782CF670025D9F8 /* SocketIOManagerType.swift */,
 				242B21982782D3120025D9F8 /* MockSocketIOManager.swift */,
 				240FD25226B26ECD00253683 /* SocketIOManager.swift */,
+				242B217E2782CE370025D9F8 /* DTO */,
 			);
 			path = SocketNetworkManager;
 			sourceTree = "<group>";
@@ -155,58 +152,23 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
-		244FF85E27830BA000AAC613 /* Domain */ = {
+		244FF85E27830BA000AAC613 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				244FF87627830FB400AAC613 /* Repository */,
-				244FF86227830C8600AAC613 /* UseCase */,
-				24A5563726B510060020ED96 /* Entity */,
+				244FF85F27830C0900AAC613 /* RoomViewModel.swift */,
 			);
-			path = Domain;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		244FF86227830C8600AAC613 /* UseCase */ = {
+		24A5563726B510060020ED96 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				244FF86327830CDF00AAC613 /* SignInUseCase.swift */,
-				244FF85F27830C0900AAC613 /* ManagerRoomsUseCase.swift */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
-		244FF87627830FB400AAC613 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				244FF87727830FC300AAC613 /* RoomRepository.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		244FF87A27830FD100AAC613 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				242B217C2782CE100025D9F8 /* SocketNetworkManager */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		244FF87F27830FFF00AAC613 /* RepositoryProtocol */ = {
-			isa = PBXGroup;
-			children = (
-				244FF87B27830FF200AAC613 /* RoomRepositoryType.swift */,
-				242B217E2782CE370025D9F8 /* DTO */,
-			);
-			path = RepositoryProtocol;
-			sourceTree = "<group>";
-		};
-		24A5563726B510060020ED96 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
+				036184DB278328F500F1F16B /* Mapper.swift */,
+				24A5563C26B5102F0020ED96 /* User.swift */,
 				24A5563926B510270020ED96 /* Chat.swift */,
 				2459ACC226B59E280025FE9B /* Room.swift */,
-				24A5563C26B5102F0020ED96 /* User.swift */,
 			);
-			path = Entity;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		24A5564326B511890020ED96 /* Storyboard */ = {
@@ -361,12 +323,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				242B21992782D3120025D9F8 /* MockSocketIOManager.swift in Sources */,
-				244FF87C27830FF200AAC613 /* RoomRepositoryType.swift in Sources */,
 				2459ACBE26B59DB90025FE9B /* RoomsTableViewController.swift in Sources */,
 				242B21872782CF670025D9F8 /* SocketIOManagerType.swift in Sources */,
 				244FF8582783098300AAC613 /* UserDTO.swift in Sources */,
 				242B2178278267EE0025D9F8 /* ToastMessage.swift in Sources */,
-				244FF87827830FC300AAC613 /* RoomRepository.swift in Sources */,
 				240FD25326B26ECD00253683 /* SocketIOManager.swift in Sources */,
 				2459ACDF26B7D93F0025FE9B /* HeaderReusableView.swift in Sources */,
 				2459ACBB26B5239D0025FE9B /* DummyData.swift in Sources */,
@@ -375,11 +335,11 @@
 				240FD23726B26DE500253683 /* AppDelegate.swift in Sources */,
 				242B21842782CE8F0025D9F8 /* RoomDTO.swift in Sources */,
 				24A5563A26B510270020ED96 /* Chat.swift in Sources */,
-				244FF86027830C0900AAC613 /* ManagerRoomsUseCase.swift in Sources */,
+				244FF86027830C0900AAC613 /* RoomViewModel.swift in Sources */,
 				2459ACD326B6EE420025FE9B /* ChatViewController.swift in Sources */,
 				242B21732781EF7B0025D9F8 /* LoginViewController.swift in Sources */,
 				244FF85B2783098B00AAC613 /* ChatDTO.swift in Sources */,
-				244FF86427830CDF00AAC613 /* SignInUseCase.swift in Sources */,
+				036184DC278328F600F1F16B /* Mapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
