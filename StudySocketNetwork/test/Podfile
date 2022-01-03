@@ -9,5 +9,8 @@ target 'test' do
 pod 'Socket.IO-Client-Swift'
 pod 'MessageKit'
 pod 'SDWebImage'
-
+pod 'RxSwift'
+pod 'RxCocoa'
+pod 'NSObject+Rx'
+pod 'RxDataSources'
 end

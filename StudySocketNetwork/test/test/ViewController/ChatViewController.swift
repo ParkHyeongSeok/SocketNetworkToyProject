@@ -13,14 +13,8 @@ import SDWebImage
 class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, InputBarAccessoryViewDelegate {
     
     var room: Room?
-    
+    var currentUser: User?
     var chats = [Chat]()
-    
-    private let formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +22,11 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        
         messageInputBar.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateChats(_:)), name: NSNotification.Name("chatsUpdate"), object: nil)
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUser(_:)), name: NSNotification.Name("userUpdate"), object: nil)
     }
     
     // MARK: - Action
@@ -43,10 +36,16 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         messagesCollectionView.reloadData()
     }
     
+    @objc func updateUser(_ notification: Notification) {
+        let user = notification.object as! User
+        self.currentUser = user
+    }
+    
     // MARK: - Messages Delegate Methods
     
     func currentSender() -> SenderType {
-        return DummyData.shared.currentUser
+        guard let currentUser = self.currentUser else { return DummyData.shared.currentUser }
+        return currentUser
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
@@ -85,10 +84,16 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         guard let room = room else { return }
-        let user = DummyData.shared.currentUser
-        let newChat = Chat(sender: user, messageId: UUID().uuidString, sentDate: Date(), kind: .text(text), content: text)
-        SocketIOManager.shared.sendMessage(room: room, chat: newChat, user: DummyData.shared.currentUser)
+        guard let user = self.currentUser else { return }
+        let newChat = Chat(sender: user, messageId: UUID().uuidString, sentDate: Date(), kind: .text(text))
+        SocketIOManager.shared.sendMessage(room: room, chat: newChat, user: user)
         inputBar.inputTextView.text = ""
     }
+    
+    private let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
+    }()
     
 }
