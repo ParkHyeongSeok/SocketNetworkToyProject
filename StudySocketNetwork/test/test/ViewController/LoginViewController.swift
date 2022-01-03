@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
 class LoginViewController: UIViewController {
     
@@ -18,13 +21,20 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         HSButton.layer.cornerRadius = 10
         SAButton.layer.cornerRadius = 10
+        MockSocketIOManager.shared.fetchAllRooms
+            .bind(onNext: { rooms in
+                if let room = rooms.first {
+                    print(room.roomTitle)
+                }
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     @IBAction func HSLoginButtonTapped(_ sender: Any) {
-        socket.loginUser(senderID: "1")
+        socket.loginUser(senderID: "형석")
     }
     @IBAction func SALoginButtonTapped(_ sender: Any) {
-        socket.loginUser(senderID: "2")
+        socket.loginUser(senderID: "선아")
     }
     
 }

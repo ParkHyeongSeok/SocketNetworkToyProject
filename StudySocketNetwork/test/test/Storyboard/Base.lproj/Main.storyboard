@@ -57,7 +57,7 @@
         <!--Chat-->
         <scene sceneID="hWg-ml-uT8">
             <objects>
-                <tableViewController storyboardIdentifier="chatVC" id="7zI-V2-IOB" customClass="ChatTableViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="chatVC" id="7zI-V2-IOB" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RhW-gM-3ax">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
