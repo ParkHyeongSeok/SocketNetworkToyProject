@@ -12,6 +12,4 @@ pod 'SDWebImage'
 pod 'RxSwift'
 pod 'RxCocoa'
 pod 'NSObject+Rx'
-pod 'RxDataSources'
-pod 'ReactorKit'
 end

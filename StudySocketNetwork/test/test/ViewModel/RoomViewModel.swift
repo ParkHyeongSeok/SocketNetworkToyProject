@@ -11,7 +11,10 @@ import RxCocoa
 
 class RoomViewModel {
     
-    private let socketIOManager: SocketIOManagerType = MockSocketIOManager()
+    private let socketIOManager: SocketIOManagerType
+    init(socketIOManager: SocketIOManagerType = MockSocketIOManager.shared) {
+        self.socketIOManager = socketIOManager
+    }
     
     var currentUser: Driver<User> {
         return socketIOManager.currentUser.asDriver(onErrorJustReturn: DummyData.shared.currentUser)
@@ -21,16 +24,17 @@ class RoomViewModel {
         return socketIOManager.allRooms.asDriver(onErrorJustReturn: [])
     }
     
-    func createRoom(roomName: String) {
-        
+    func createRoom(currentUser: User, roomTitle: String) {
+        let newRoom = Room(roomID: UUID().uuidString, roomTitle: roomTitle, createDate: Date(), participant: [currentUser])
+        socketIOManager.createRoom(room: newRoom.mapping())
     }
     
-    func joinRoom() {
-        
+    func joinRoom(room: Room, user: User) {
+        socketIOManager.joinRoom(room: room.mapping(), user: user.mapping())
     }
     
-    func leaveRoom() {
-        
+    func leaveRoom(room: Room, user: User) {
+        socketIOManager.leaveRoom(room: room.mapping(), user: user.mapping())
     }
     
 }

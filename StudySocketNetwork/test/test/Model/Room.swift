@@ -10,23 +10,19 @@ import Foundation
 class Room {
     let roomID: String
     var roomTitle: String
-    var createDate: Double
-    private(set) var chats: [Chat]
+    var createDate: Date
+    var participant: [User]
     
     init(
         roomID: String,
         roomTitle: String,
-        createDate: Double,
-        chats: [Chat]
+        createDate: Date,
+        participant: [User]
     ) {
         self.roomID = roomID
         self.roomTitle = roomTitle
         self.createDate = createDate
-        self.chats = chats
-    }
-  
-    func addChat(chat: Chat) {
-        chats.append(chat)
+        self.participant = participant
     }
 }
 
@@ -36,9 +32,8 @@ extension Room: Mapper {
         [
             "roomID": self.roomID,
             "roomTitle": self.roomTitle,
-            "createDate": self.createDate,
-            "chats": self.chats.map { $0.mapping() }
-            
+            "createDate": Double(self.createDate.timeIntervalSince1970),
+            "participant": self.participant.map { $0.mapping() }
         ]
         return room
     }
