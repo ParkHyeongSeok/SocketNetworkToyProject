@@ -15,103 +15,100 @@ var secondUser = {
     displayName: "선아"
 };
 
-// room 더미
-let firstRoom = {
-    roomID: "1204304",
-    roomTitle: "첫 번 째 방 입니다.",
-    createDate: 1.1,
-    chats: [
-    {
-        sender: firstUser,
-        messageId: "23523knwrjgkner",
-        sentDate: 1.1,
-        content: "하이! 반가워"
-    },
-    {
-        sender: secondUser,
-        messageId: "sfawegaweg",
-        sentDate: 1.2,
-        content: "오이! 나도 반가워용"
-    }
-    ]
-}
-let secondRoom = {
-    roomID: "1204304",
-    roomTitle: "두 번 째 방 입니다.",
-    createDate: 1.1,
-    chats: [
-    {
-        sender: firstUser,
-        messageId: "23523knwrjgkner",
-        sentDate: 1.1,
-        content: "하이! 반가워"
-    },
-    {
-        sender: secondUser,
-        messageId: "sfawegaweg",
-        sentDate: 1.2,
-        content: "오이! 나도 반가워용"
-    }
-    ]
-}
-
 // room & chat DB
-let rooms = [firstRoom, secondRoom];
+var rooms = [];
+
 // 사용자 DB
-let users = [firstUser, secondUser];
+var users = [firstUser, secondUser];
+
+// chat DB
+var chatDB = [];
 
 io.on('connection', (socket) => {
     const req = socket.request;
 	const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     console.log('클라이언트 연결 : ', ip, socket.id);
 
+    // 모든 유저가 입장하면 모든 방의 정보를 받음
     io.emit('rooms', rooms);
 
     var currentUser;
     socket.emit('isConnected', currentUser)
 
+    // 사용자가 아아디와 패스워드를 입력하면, 
     socket.on('fetchUser', (name) => {
+        // DB에서 해당 사용자 정보를 찾아서
         var fetchUser = users.find(function(data){
             return data.displayName == name
         });
         console.log(fetchUser)
+        // 해당 사용자에게 유저 정보를 보내줌
         socket.emit('currentUser', fetchUser);
         this.currentUser = fetchUser
     });
+
+    // 사용자가 방을 만드는 경우, 방 정보를 받아서
+    socket.on('createRoom', (room) => {
+        // DB를 업데이트 -> 클라이언트
+        // room.participant.push(currentUser)
+        rooms.push(room);
+        console.log(rooms)
+        // 모든 사용자에게 방이 열렸음을 알림
+        io.emit('rooms', rooms)
+        // 그리고 방 생성자는 자동으로 입장
+        socket.join(room.roomId);
+        socket.broadcast.to(room.roomId).emit('msg', `${room.roomTitle} 방이 열렸습니다.`);
+    })
+
+    // 사용자가 방에 입장하는 경우, 사용자와 방 정보를 받아서
+    socket.on('joinRoom', (room, user) => {
+        // DB에서 해당 방의 정보를 업데이트
+        var currentRoom = rooms.find(function(data){
+            return data.roomId == room.roomId
+        });
+        currentRoom.participant.push(user)
+        console.log(currentRoom)
+        // DB에서 이제까지의 채팅 내역 가져오기
+        var roomChats = chatDB.filter(function(data){
+            return data.roomId == room.roomId
+        });
+        socket.join(room.roomId);
+        socket.emit('roomChats', roomChats)
+        socket.broadcast.to(room.roomId).emit('msg', `${user.displayName}님이 입장하셨습니다.`)
+    });
+
+    socket.on('leaveRoom', (room, user) => {
+        // DB에서 해당 방의 정보를 업데이트
+        var currentRoom = rooms.find(function(data){
+            return data.roomId == room.roomId
+        });
+        currentRoom.participant = currentRoom.participant.filter(function(data){
+            data.senderId != user.senderId
+        })
+        console.log(currentRoom)
+        socket.leave(room.roomId);
+        io.to(room.roomId).emit('msg', `${user.displayName}님이 떠났습니다.`)
+    });
+
+    socket.on('chat', (chat, room) => {
+        chatDB.push(chat)
+        console.log(chatDB)
+        io.to(room.roomId).emit('chat', chat)
+    })
 
     socket.on('disconnect', () => {
         socket.emit('disConnected', currentUser)
         console.log('disconnection socketIO')
     })
-
-    socket.on('createRoom', (room) => {
-        rooms.push(room);
-        io.emit('rooms', rooms)
-        socket.join(room.roomID);
-        io.to(room.roomID).emit('msg', `${room.roomTitle} 방이 열렸습니다.`);
-    })
-
-    socket.on('chat', (chat, room, user) => {
-        var currentRoom = rooms.find(function(data){
-            return data.roomID == room.roomID
-        });
-        currentRoom.chats.push(chat)
-        console.log(currentRoom)
-        io.to(room.roomID).emit('chat', chat, user, room)
-    })
-
-    socket.on('joinRoom', (room, user) => {
-        socket.join(room.roomID);
-        io.to(room.roomID).emit('msg', `${user.nickname}님이 입장하셨습니다.`)
-    });
-
-    socket.on('leaveRoom', (room, user) => {
-        socket.leave(room.roomID);
-        io.to(room.roomID).emit('msg', `${user.nickname}님이 떠났습니다.`)
-    });
-
-
 })
+
+function removeItem(arr, value) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+      arr.splice(index, 1);
+    }
+    return arr;
+  }
 
 app.get('/', (req, res) => {
     res.send('Hi Swift')

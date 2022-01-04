@@ -1,5 +1,5 @@
 //
-//  RoomsTableViewController.swift
+//  RoomsViewController.swift
 //  test
 //
 //  Created by 박형석 on 2021/08/01.
@@ -10,9 +10,10 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 
-class RoomsTableViewController: UITableViewController {
+class RoomsViewController: UIViewController {
     
     @IBOutlet weak var createRoomButton: UIBarButtonItem!
+    @IBOutlet weak var roomTableView: UITableView!
     
     let viewModel = RoomViewModel()
     
@@ -28,26 +29,27 @@ class RoomsTableViewController: UITableViewController {
     
     private func bindViewModel() {
         viewModel.currentUser
-            .drive(onNext: { user in
+            .drive(onNext: { [unowned self] user in
                 self.title = "\(user.displayName)님, 환영합니다!"
             })
             .disposed(by: rx.disposeBag)
         
         viewModel.rooms
-            .drive(self.tableView.rx.items(cellIdentifier: "roomsCell")) { index, item, cell in
+            .drive(self.roomTableView.rx.items(cellIdentifier: "roomsCell")) { index, item, cell in
                 cell.textLabel?.text = item.roomTitle
-                cell.detailTextLabel?.text = self.dateToString(date: Date())
+                cell.detailTextLabel?.text = "참여자 수 : \(item.participant.count)"
             }
             .disposed(by: rx.disposeBag)
         
-        Observable.zip(
+        Observable.combineLatest(
             viewModel.currentUser.asObservable(),
-            tableView.rx.modelSelected(Room.self))
+            roomTableView.rx.modelSelected(Room.self))
+            .observe(on: MainScheduler.asyncInstance)
             .bind { (user: User, room: Room) in
+                let vm = ChatViewModel(currentUser: user, room: room, socketIOManager: self.viewModel.socketIOManager)
                 let vc = ChatViewController()
-                vc.room = room
-                vc.currentUser = user
-                SocketIOManager.shared.joinRoom(room: room, user: user)
+                vc.viewModel = vm
+                self.viewModel.joinRoom(room: room, user: user)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: rx.disposeBag)
@@ -61,11 +63,12 @@ class RoomsTableViewController: UITableViewController {
                 }
                 let okAction = UIAlertAction(title: "생성", style: .default) { (action) in
                     guard let text = alert.textFields?[0].text else { return }
-                    let newRoom = Room(roomID: UUID().uuidString, roomTitle: text, createDate: Date(), participant: [])
-                    SocketIOManager.shared.createRoom(room: newRoom)
+                    
+                    let newRoom = Room(roomId: UUID().uuidString, roomTitle: text, createDate: Date(), participant: [user])
+                    self.viewModel.createRoom(newRoom: newRoom)
+                    let vm = ChatViewModel(currentUser: user, room: newRoom, socketIOManager: self.viewModel.socketIOManager)
                     let vc = ChatViewController()
-                    vc.room = newRoom
-                    vc.currentUser = user
+                    vc.viewModel = vm
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 let cancelAction = UIAlertAction(title: "취소", style: .destructive) { (action) in

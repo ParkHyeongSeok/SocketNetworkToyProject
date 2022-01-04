@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 struct RoomDTO: Codable {
-    var roomID: String
+    var roomId: String
     var roomTitle: String
     var createDate: Double
     var participant: [UserDTO]
@@ -18,7 +18,7 @@ struct RoomDTO: Codable {
 
 extension RoomDTO {
     func toDomain() -> Room {
-        return Room(roomID: self.roomID,
+        return Room(roomId: self.roomId,
                     roomTitle: self.roomTitle,
                     createDate: Date(timeIntervalSince1970: TimeInterval(self.createDate)),
                     participant: self.participant.map { $0.toDomain() })

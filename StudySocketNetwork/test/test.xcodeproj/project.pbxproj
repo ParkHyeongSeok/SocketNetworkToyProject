@@ -24,7 +24,7 @@
 		244FF85B2783098B00AAC613 /* ChatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF85A2783098B00AAC613 /* ChatDTO.swift */; };
 		244FF86027830C0900AAC613 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF85F27830C0900AAC613 /* RoomViewModel.swift */; };
 		2459ACBB26B5239D0025FE9B /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACBA26B5239D0025FE9B /* DummyData.swift */; };
-		2459ACBE26B59DB90025FE9B /* RoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACBD26B59DB90025FE9B /* RoomsTableViewController.swift */; };
+		2459ACBE26B59DB90025FE9B /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACBD26B59DB90025FE9B /* RoomsViewController.swift */; };
 		2459ACC326B59E280025FE9B /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACC226B59E280025FE9B /* Room.swift */; };
 		2459ACD326B6EE420025FE9B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACD226B6EE420025FE9B /* ChatViewController.swift */; };
 		2459ACDF26B7D93F0025FE9B /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459ACDE26B7D93F0025FE9B /* HeaderReusableView.swift */; };
@@ -52,7 +52,7 @@
 		244FF85A2783098B00AAC613 /* ChatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDTO.swift; sourceTree = "<group>"; };
 		244FF85F27830C0900AAC613 /* RoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
 		2459ACBA26B5239D0025FE9B /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
-		2459ACBD26B59DB90025FE9B /* RoomsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsTableViewController.swift; sourceTree = "<group>"; };
+		2459ACBD26B59DB90025FE9B /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		2459ACC226B59E280025FE9B /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		2459ACD226B6EE420025FE9B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2459ACDE26B7D93F0025FE9B /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
@@ -74,6 +74,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		036184DF27846FE000F1F16B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				242B21722781EF7B0025D9F8 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		036184E02784701400F1F16B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2459ACDE26B7D93F0025FE9B /* HeaderReusableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		07202EB0AF9F594E162C45C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,22 +123,23 @@
 				242B217A2782C2430025D9F8 /* API */,
 				242B217C2782CE100025D9F8 /* SocketNetworkManager */,
 				24A5563726B510060020ED96 /* Model */,
-				244FF85E27830BA000AAC613 /* ViewModel */,
-				24A5564626B511E20020ED96 /* ViewController */,
+				036184DF27846FE000F1F16B /* Login */,
+				244FF85E27830BA000AAC613 /* Room */,
+				24A5564626B511E20020ED96 /* Chat */,
+				242B2176278267CC0025D9F8 /* CustomView */,
 				24A5564326B511890020ED96 /* Storyboard */,
-				242B2176278267CC0025D9F8 /* View */,
 				24A5564426B511930020ED96 /* Resource */,
 				240FD24426B26DE700253683 /* Info.plist */,
 			);
 			path = test;
 			sourceTree = "<group>";
 		};
-		242B2176278267CC0025D9F8 /* View */ = {
+		242B2176278267CC0025D9F8 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				242B2177278267EE0025D9F8 /* ToastMessage.swift */,
 			);
-			path = View;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		242B217A2782C2430025D9F8 /* API */ = {
@@ -153,13 +170,13 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
-		244FF85E27830BA000AAC613 /* ViewModel */ = {
+		244FF85E27830BA000AAC613 /* Room */ = {
 			isa = PBXGroup;
 			children = (
 				244FF85F27830C0900AAC613 /* RoomViewModel.swift */,
-				243C3C042783E37500C2ED45 /* ChatViewModel.swift */,
+				2459ACBD26B59DB90025FE9B /* RoomsViewController.swift */,
 			);
-			path = ViewModel;
+			path = Room;
 			sourceTree = "<group>";
 		};
 		24A5563726B510060020ED96 /* Model */ = {
@@ -191,15 +208,14 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		24A5564626B511E20020ED96 /* ViewController */ = {
+		24A5564626B511E20020ED96 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				242B21722781EF7B0025D9F8 /* LoginViewController.swift */,
-				2459ACBD26B59DB90025FE9B /* RoomsTableViewController.swift */,
+				243C3C042783E37500C2ED45 /* ChatViewModel.swift */,
 				2459ACD226B6EE420025FE9B /* ChatViewController.swift */,
-				2459ACDE26B7D93F0025FE9B /* HeaderReusableView.swift */,
+				036184E02784701400F1F16B /* View */,
 			);
-			path = ViewController;
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		D6E04F2C6CFE370804576ABA /* Pods */ = {
@@ -326,7 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				243C3BE52783DB4C00C2ED45 /* Instantiatable.swift in Sources */,
-				2459ACBE26B59DB90025FE9B /* RoomsTableViewController.swift in Sources */,
+				2459ACBE26B59DB90025FE9B /* RoomsViewController.swift in Sources */,
 				242B21872782CF670025D9F8 /* SocketIOManagerType.swift in Sources */,
 				244FF8582783098300AAC613 /* UserDTO.swift in Sources */,
 				242B2178278267EE0025D9F8 /* ToastMessage.swift in Sources */,

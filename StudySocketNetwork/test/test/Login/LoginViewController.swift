@@ -14,20 +14,10 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var HSButton: UIButton!
     @IBOutlet weak var SAButton: UIButton!
-    
-    private let socket = MockSocketIOManager.shared
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
-        socket.allRooms
-            .bind(onNext: { rooms in
-                if let room = rooms.first {
-                    print(room.roomTitle)
-                }
-            })
-            .disposed(by: rx.disposeBag)
     }
     
     func configureUI() {
@@ -36,10 +26,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func HSLoginButtonTapped(_ sender: Any) {
-        socket.loginUser(senderId: "형석")
+        SocketIOManager.shared.requestUserData(name: "형석")
     }
     @IBAction func SALoginButtonTapped(_ sender: Any) {
-        socket.loginUser(senderId: "선아")
+        SocketIOManager.shared.requestUserData(name: "선아")
     }
     
 }

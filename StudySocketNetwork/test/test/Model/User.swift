@@ -43,3 +43,9 @@ extension SenderType {
         return user
     }
 }
+
+extension User: Equatable {
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.senderId == rhs.senderId
+    }
+}
