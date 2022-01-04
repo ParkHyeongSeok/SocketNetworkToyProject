@@ -61,7 +61,7 @@ class RoomsTableViewController: UITableViewController {
                 }
                 let okAction = UIAlertAction(title: "생성", style: .default) { (action) in
                     guard let text = alert.textFields?[0].text else { return }
-                    let newRoom = Room(roomID: UUID().uuidString, roomTitle: text, createDate: Double(Date().timeIntervalSince1970), chats: [])
+                    let newRoom = Room(roomID: UUID().uuidString, roomTitle: text, createDate: Date(), participant: [])
                     SocketIOManager.shared.createRoom(room: newRoom)
                     let vc = ChatViewController()
                     vc.room = newRoom

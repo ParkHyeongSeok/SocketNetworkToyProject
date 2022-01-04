@@ -18,7 +18,8 @@
 		242B2178278267EE0025D9F8 /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B2177278267EE0025D9F8 /* ToastMessage.swift */; };
 		242B21842782CE8F0025D9F8 /* RoomDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B21832782CE8F0025D9F8 /* RoomDTO.swift */; };
 		242B21872782CF670025D9F8 /* SocketIOManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B21862782CF670025D9F8 /* SocketIOManagerType.swift */; };
-		242B21992782D3120025D9F8 /* MockSocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B21982782D3120025D9F8 /* MockSocketIOManager.swift */; };
+		243C3BE52783DB4C00C2ED45 /* Instantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243C3BE42783DB4C00C2ED45 /* Instantiatable.swift */; };
+		243C3C052783E37500C2ED45 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243C3C042783E37500C2ED45 /* ChatViewModel.swift */; };
 		244FF8582783098300AAC613 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF8572783098300AAC613 /* UserDTO.swift */; };
 		244FF85B2783098B00AAC613 /* ChatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF85A2783098B00AAC613 /* ChatDTO.swift */; };
 		244FF86027830C0900AAC613 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244FF85F27830C0900AAC613 /* RoomViewModel.swift */; };
@@ -45,7 +46,8 @@
 		242B2177278267EE0025D9F8 /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
 		242B21832782CE8F0025D9F8 /* RoomDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDTO.swift; sourceTree = "<group>"; };
 		242B21862782CF670025D9F8 /* SocketIOManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManagerType.swift; sourceTree = "<group>"; };
-		242B21982782D3120025D9F8 /* MockSocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSocketIOManager.swift; sourceTree = "<group>"; };
+		243C3BE42783DB4C00C2ED45 /* Instantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instantiatable.swift; sourceTree = "<group>"; };
+		243C3C042783E37500C2ED45 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		244FF8572783098300AAC613 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		244FF85A2783098B00AAC613 /* ChatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDTO.swift; sourceTree = "<group>"; };
 		244FF85F27830C0900AAC613 /* RoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
@@ -135,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				242B21862782CF670025D9F8 /* SocketIOManagerType.swift */,
-				242B21982782D3120025D9F8 /* MockSocketIOManager.swift */,
 				240FD25226B26ECD00253683 /* SocketIOManager.swift */,
 				242B217E2782CE370025D9F8 /* DTO */,
 			);
@@ -156,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				244FF85F27830C0900AAC613 /* RoomViewModel.swift */,
+				243C3C042783E37500C2ED45 /* ChatViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -174,6 +176,7 @@
 		24A5564326B511890020ED96 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				243C3BE42783DB4C00C2ED45 /* Instantiatable.swift */,
 				240FD23C26B26DE500253683 /* Main.storyboard */,
 				240FD24126B26DE700253683 /* LaunchScreen.storyboard */,
 			);
@@ -322,7 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				242B21992782D3120025D9F8 /* MockSocketIOManager.swift in Sources */,
+				243C3BE52783DB4C00C2ED45 /* Instantiatable.swift in Sources */,
 				2459ACBE26B59DB90025FE9B /* RoomsTableViewController.swift in Sources */,
 				242B21872782CF670025D9F8 /* SocketIOManagerType.swift in Sources */,
 				244FF8582783098300AAC613 /* UserDTO.swift in Sources */,
@@ -339,6 +342,7 @@
 				2459ACD326B6EE420025FE9B /* ChatViewController.swift in Sources */,
 				242B21732781EF7B0025D9F8 /* LoginViewController.swift in Sources */,
 				244FF85B2783098B00AAC613 /* ChatDTO.swift in Sources */,
+				243C3C052783E37500C2ED45 /* ChatViewModel.swift in Sources */,
 				036184DC278328F600F1F16B /* Mapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

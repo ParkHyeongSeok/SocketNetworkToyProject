@@ -13,15 +13,14 @@ struct RoomDTO: Codable {
     var roomID: String
     var roomTitle: String
     var createDate: Double
-    var chats: [ChatDTO]
+    var participant: [UserDTO]
 }
 
 extension RoomDTO {
     func toDomain() -> Room {
-        let chats = self.chats.map { $0.toDomain() }
         return Room(roomID: self.roomID,
                     roomTitle: self.roomTitle,
-                    createDate: self.createDate,
-                    chats: chats)
+                    createDate: Date(timeIntervalSince1970: TimeInterval(self.createDate)),
+                    participant: self.participant.map { $0.toDomain() })
     }
 }

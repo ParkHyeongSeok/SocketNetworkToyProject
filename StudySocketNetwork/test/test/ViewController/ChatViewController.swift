@@ -9,11 +9,18 @@ import UIKit
 import MessageKit
 import InputBarAccessoryView
 import SDWebImage
+import NSObject_Rx
 
 class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, InputBarAccessoryViewDelegate {
     
     var room: Room!
     var currentUser: User!
+    var chats: [Chat] = [] {
+        didSet {
+            self.messagesCollectionView.reloadData()
+        }
+    }
+    var viewModel: ChatViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,21 +28,27 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
+        
+        viewModel.chats
+            .bind(onNext: { chats in
+                self.chats = chats
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     // MARK: - Messages Delegate Methods
     
     func currentSender() -> SenderType {
-        guard let currentUser = self.currentUser else { return DummyData.shared.currentUser }
-        return currentUser
+        return viewModel.currentUser
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         let url = URL(string: message.sender.senderId)!
         let sdImage = UIImageView()
-        sdImage.sd_setImage(with: url, placeholderImage: UIImage(named: "img"), completed: nil)
-        let avatar = Avatar(image: sdImage.image, initials: "default")
-        avatarView.set(avatar: avatar)
+        sdImage.sd_setImage(with: url, placeholderImage: nil, completed: { image, _,_,_ in
+            let avatar = Avatar(image: image, initials: message.sender.displayName)
+            avatarView.set(avatar: avatar)
+        })
     }
     
 //    func messageHeaderView(for indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageReusableView {
@@ -57,19 +70,15 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-        return self.room.chats[indexPath.section]
+        return self.chats[indexPath.section]
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-        return self.room.chats.count
+        return self.chats.count
     }
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        let newChat = Chat(sender: self.currentUser, messageId: UUID().uuidString, sentDate: Date(), kind: .text(text))
-        self.room.addChat(chat: newChat)
-        self.messagesCollectionView.reloadData()
-        
-        SocketIOManager.shared.sendMessage(room: self.room, chat: newChat, user: self.currentUser)
+        self.viewModel.sendMessage(user: viewModel.currentUser, room: viewModel.room, content: text)
         inputBar.inputTextView.text = ""
     }
     
