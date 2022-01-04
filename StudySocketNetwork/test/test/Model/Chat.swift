@@ -38,7 +38,7 @@ extension Chat: Mapper {
             let chat: [String:Any] =
             [
                 "sender": self.sender.mapping(),
-                "messageID": self.messageId,
+                "messageId": self.messageId,
                 "roomId": self.roomId,
                 "sentDate": Double(self.sentDate.timeIntervalSince1970),
                 "content": content
@@ -50,4 +50,9 @@ extension Chat: Mapper {
     }
 }
 
+extension Chat: Equatable {
+    static func == (lhs: Chat, rhs: Chat) -> Bool {
+        return lhs.messageId == rhs.messageId
+    }
+}
 

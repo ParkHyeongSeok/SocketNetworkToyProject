@@ -10,19 +10,21 @@ import RxSwift
 import RxCocoa
 
 protocol SocketIOManagerType {
-    var allRooms: PublishSubject<[Room]> { get set }
-    var allChats: PublishSubject<[Chat]> { get set }
+    var currentUser: BehaviorSubject<User> { get set }
+    var allRooms: BehaviorSubject<[Room]> { get set }
+    var allChats: BehaviorSubject<[Chat]> { get set }
+    var currentChat: PublishSubject<Chat> { get set }
     var message: PublishSubject<String?> { get set }
-    var currentUser: PublishSubject<User> { get set }
     
-    func loginUser(senderID: String)
+    func requestUserData(name: String)
     // func logoutUser()
     
-    func createRoom(room: [String:Any])
+    func requestCreate(room: [String:Any])
     // func deleteRoom(room: [String:Any])
     // func updateRoom(room: [String:Any])
-    func joinRoom(room: [String:Any], user: [String:Any])
-    func leaveRoom(room: [String:Any], user: [String:Any])
     
-    func sendMessage(chat: [String:Any])
+    func requestJoin(room: [String:Any], user: [String:Any])
+    func requestLeave(room: [String:Any], user: [String:Any])
+    
+    func sendMessage(chat: [String:Any], room: [String:Any])
 }

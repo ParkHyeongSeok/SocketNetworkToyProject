@@ -9,56 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Rooms-->
-        <scene sceneID="Enk-ub-wdD">
-            <objects>
-                <tableViewController id="y7q-0H-3ZY" customClass="RoomsTableViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uMa-54-ZYr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="roomsCell" textLabel="IRK-bW-pXe" detailTextLabel="wPR-F4-fMD" style="IBUITableViewCellStyleValue1" id="3UI-fo-6tK">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3UI-fo-6tK" id="uIb-hK-8BW">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IRK-bW-pXe">
-                                            <rect key="frame" x="20" y="12" width="33" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wPR-F4-fMD">
-                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="y7q-0H-3ZY" id="NcG-QZ-Fkc"/>
-                            <outlet property="delegate" destination="y7q-0H-3ZY" id="ijv-qi-piL"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Rooms" id="o6l-Mw-0aq">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="78H-pV-RFc"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="createRoomButton" destination="78H-pV-RFc" id="1M2-O4-aMt"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nPx-Ay-PIc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="365.21739130434787" y="31.473214285714285"/>
-        </scene>
         <!--Chat-->
         <scene sceneID="hWg-ml-uT8">
             <objects>
@@ -135,7 +85,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KQe-FP-h1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1245" y="31"/>
+            <point key="canvasLocation" x="1487" y="31"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pc1-Ow-5cr">
@@ -153,7 +103,7 @@
             </objects>
             <point key="canvasLocation" x="-1141" y="31"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="V5m-64-8Ko">
             <objects>
                 <viewController id="ioc-tl-86e" customClass="LoginViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
@@ -176,7 +126,7 @@
                                         <state key="normal" title="형석으로 로그인"/>
                                         <connections>
                                             <action selector="HSLoginButtonTapped:" destination="ioc-tl-86e" eventType="touchUpInside" id="cvp-7D-9Wu"/>
-                                            <segue destination="y7q-0H-3ZY" kind="show" id="vs7-b6-tu5"/>
+                                            <segue destination="BCE-9Z-IQT" kind="show" id="cii-mw-Gi3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHZ-4m-WAN">
@@ -191,7 +141,7 @@
                                         <state key="normal" title="선아로 로그인"/>
                                         <connections>
                                             <action selector="SALoginButtonTapped:" destination="ioc-tl-86e" eventType="touchUpInside" id="uA5-53-ZBZ"/>
-                                            <segue destination="y7q-0H-3ZY" kind="show" id="3ZT-DS-OhH"/>
+                                            <segue destination="BCE-9Z-IQT" kind="show" id="5vl-xy-f0e"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -204,7 +154,7 @@
                             <constraint firstItem="uLN-GZ-Ifv" firstAttribute="centerX" secondItem="w6A-VG-PMq" secondAttribute="centerX" id="aQD-nT-nAz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tkq-PZ-NlM"/>
+                    <navigationItem key="navigationItem" title="Login" id="tkq-PZ-NlM"/>
                     <connections>
                         <outlet property="HSButton" destination="vVm-3N-Uxi" id="zBZ-QJ-cXF"/>
                         <outlet property="SAButton" destination="MHZ-4m-WAN" id="Cem-EH-V5X"/>
@@ -212,11 +162,71 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VEb-a8-DoS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391" y="31"/>
+            <point key="canvasLocation" x="-280" y="31"/>
+        </scene>
+        <!--Rooms View Controller-->
+        <scene sceneID="ZA1-nu-JZN">
+            <objects>
+                <viewController id="BCE-9Z-IQT" customClass="RoomsViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Il-dF-mxz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mxH-hN-p6o">
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="roomsCell" textLabel="uge-C7-OdH" detailTextLabel="0Or-cA-R6n" style="IBUITableViewCellStyleValue1" id="BQR-2c-Plp">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BQR-2c-Plp" id="i3G-ya-AFl">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uge-C7-OdH">
+                                                    <rect key="frame" x="20" y="15" width="25" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Or-cA-R6n">
+                                                    <rect key="frame" x="361" y="15" width="33" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Byt-BS-f3E"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Byt-BS-f3E" firstAttribute="bottom" secondItem="mxH-hN-p6o" secondAttribute="bottom" id="H7N-RM-BDw"/>
+                            <constraint firstItem="Byt-BS-f3E" firstAttribute="trailing" secondItem="mxH-hN-p6o" secondAttribute="trailing" id="ZME-1k-lZx"/>
+                            <constraint firstItem="mxH-hN-p6o" firstAttribute="top" secondItem="Byt-BS-f3E" secondAttribute="top" id="fKi-Gs-pcQ"/>
+                            <constraint firstItem="mxH-hN-p6o" firstAttribute="leading" secondItem="Byt-BS-f3E" secondAttribute="leading" id="p5c-Yn-ub4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z0E-cb-jhB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gso-6v-oNP"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="createRoomButton" destination="Gso-6v-oNP" id="ZNg-xK-GOI"/>
+                        <outlet property="roomTableView" destination="mxH-hN-p6o" id="pFz-lz-G6A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bp4-Ft-nx8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="31"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3ZT-DS-OhH"/>
+        <segue reference="cii-mw-Gi3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
