@@ -8,7 +8,7 @@
 import UIKit
 import MessageKit
 import InputBarAccessoryView
-import SDWebImage
+import Kingfisher
 import NSObject_Rx
 import RxSwift
 import RxCocoa
@@ -74,11 +74,15 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         let url = URL(string: message.sender.senderId)!
-        let sdImage = UIImageView()
-        sdImage.sd_setImage(with: url, placeholderImage: nil, completed: { image, _,_,_ in
-            let avatar = Avatar(image: image, initials: message.sender.displayName)
-            avatarView.set(avatar: avatar)
-        })
+        KingfisherManager.shared.retrieveImage(with: url) { result in
+            switch result {
+            case .success(let imageResult):
+                let avatar = Avatar(image: imageResult.image, initials: message.sender.displayName)
+                avatarView.set(avatar: avatar)
+            case .failure(let error):
+                print("KingfisherManager image error : \(error)")
+            }
+        }
     }
     
 //    func messageHeaderView(for indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageReusableView {

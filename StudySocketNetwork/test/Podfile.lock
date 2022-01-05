@@ -2,6 +2,7 @@ PODS:
   - InputBarAccessoryView (4.3.3):
     - InputBarAccessoryView/Core (= 4.3.3)
   - InputBarAccessoryView/Core (4.3.3)
+  - Kingfisher (6.3.1)
   - MessageKit (3.1.1):
     - InputBarAccessoryView (~> 4.3.0)
   - "NSObject+Rx (5.2.2)":
@@ -12,44 +13,41 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
-  - SDWebImage (5.11.1):
-    - SDWebImage/Core (= 5.11.1)
-  - SDWebImage/Core (5.11.1)
   - Socket.IO-Client-Swift (16.0.1):
     - Starscream (~> 4.0)
   - Starscream (4.0.4)
 
 DEPENDENCIES:
+  - Kingfisher
   - MessageKit
   - "NSObject+Rx"
   - RxCocoa
   - RxSwift
-  - SDWebImage
   - Socket.IO-Client-Swift
 
 SPEC REPOS:
   trunk:
     - InputBarAccessoryView
+    - Kingfisher
     - MessageKit
     - "NSObject+Rx"
     - RxCocoa
     - RxRelay
     - RxSwift
-    - SDWebImage
     - Socket.IO-Client-Swift
     - Starscream
 
 SPEC CHECKSUMS:
   InputBarAccessoryView: 8e7fc09e9cba75e0fee5da13450e15c194806f69
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   MessageKit: a3e612a54a24f5d9ca0295760749b481afd3f2da
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
-  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   Socket.IO-Client-Swift: c116d6dc9fd6be9c259bacfe143f8725bce7d79e
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
 
-PODFILE CHECKSUM: 5fa536fd25d5ea9d29975dc59aa56fc8dd13e849
+PODFILE CHECKSUM: 861482ee1b47a2a795c8ec58d62e982e9438c4bb
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

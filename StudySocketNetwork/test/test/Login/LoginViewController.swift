@@ -14,10 +14,20 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var HSButton: UIButton!
     @IBOutlet weak var SAButton: UIButton!
-  
+    @IBOutlet weak var loginTitle: UILabel!
+    @IBOutlet weak var titleStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        self.titleStackView.alpha = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(withDuration: 1) {
+            self.titleStackView.alpha = 1
+        }
     }
     
     func configureUI() {
