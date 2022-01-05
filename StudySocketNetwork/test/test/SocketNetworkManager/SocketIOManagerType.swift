@@ -10,9 +10,9 @@ import RxSwift
 import RxCocoa
 
 protocol SocketIOManagerType {
-    var currentUser: BehaviorSubject<User> { get set }
     var allRooms: BehaviorSubject<[Room]> { get set }
     var allChats: BehaviorSubject<[Chat]> { get set }
+    var currentUser: BehaviorSubject<User> { get set }
     var currentChat: PublishSubject<Chat> { get set }
     var message: PublishSubject<String?> { get set }
     

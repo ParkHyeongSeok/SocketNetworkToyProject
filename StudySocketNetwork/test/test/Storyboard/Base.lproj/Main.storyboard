@@ -17,6 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="IVQ-Et-qgi">
                             <rect key="frame" x="0.0" y="110.5" width="414" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -94,6 +95,16 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="924-E3-Rog">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="ioc-tl-86e" kind="relationship" relationship="rootViewController" id="q7R-GU-3qv"/>
@@ -211,7 +222,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomTableViewCell" rowHeight="98" id="BQR-2c-Plp" customClass="RoomTableViewCell" customModule="test" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RoomTableViewCell" rowHeight="98" id="BQR-2c-Plp" customClass="RoomTableViewCell" customModule="test" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BQR-2c-Plp" id="i3G-ya-AFl">
@@ -219,16 +230,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellBackground" translatesAutoresizingMaskIntoConstraints="NO" id="vdH-Hx-DDp">
-                                                    <rect key="frame" x="5" y="5" width="404" height="88"/>
+                                                    <rect key="frame" x="10" y="5" width="394" height="88"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="roomTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCz-i1-weS">
-                                                    <rect key="frame" x="15" y="38" width="89" height="24"/>
+                                                    <rect key="frame" x="20" y="38" width="89" height="24"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="createDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6c-dO-yT0">
-                                                    <rect key="frame" x="15" y="62" width="84" height="21"/>
+                                                    <rect key="frame" x="20" y="62" width="84" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -246,11 +257,11 @@
                                                 <constraint firstItem="vdH-Hx-DDp" firstAttribute="top" secondItem="i3G-ya-AFl" secondAttribute="top" constant="5" id="CKJ-uW-9jH"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="oah-wB-tRX" secondAttribute="bottom" constant="5" id="Hq8-3F-MXH"/>
                                                 <constraint firstItem="G6c-dO-yT0" firstAttribute="top" secondItem="cCz-i1-weS" secondAttribute="bottom" id="KiX-yO-v3b"/>
-                                                <constraint firstAttribute="trailing" secondItem="vdH-Hx-DDp" secondAttribute="trailing" constant="5" id="SZb-iY-Wdb"/>
+                                                <constraint firstAttribute="trailing" secondItem="vdH-Hx-DDp" secondAttribute="trailing" constant="10" id="SZb-iY-Wdb"/>
                                                 <constraint firstItem="G6c-dO-yT0" firstAttribute="bottom" secondItem="vdH-Hx-DDp" secondAttribute="bottom" constant="-10" id="UOe-9F-3jU"/>
                                                 <constraint firstItem="G6c-dO-yT0" firstAttribute="leading" secondItem="vdH-Hx-DDp" secondAttribute="leading" constant="10" id="cp2-RO-meQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="oah-wB-tRX" secondAttribute="trailing" constant="20" id="jvE-TN-2ke"/>
-                                                <constraint firstItem="vdH-Hx-DDp" firstAttribute="leading" secondItem="i3G-ya-AFl" secondAttribute="leading" constant="5" id="oBK-49-iFU"/>
+                                                <constraint firstItem="vdH-Hx-DDp" firstAttribute="leading" secondItem="i3G-ya-AFl" secondAttribute="leading" constant="10" id="oBK-49-iFU"/>
                                                 <constraint firstAttribute="bottom" secondItem="vdH-Hx-DDp" secondAttribute="bottom" constant="5" id="zoq-m5-TDG"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -266,7 +277,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Byt-BS-f3E"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Byt-BS-f3E" firstAttribute="bottom" secondItem="mxH-hN-p6o" secondAttribute="bottom" id="H7N-RM-BDw"/>
                             <constraint firstItem="Byt-BS-f3E" firstAttribute="trailing" secondItem="mxH-hN-p6o" secondAttribute="trailing" id="ZME-1k-lZx"/>
@@ -275,7 +286,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Z0E-cb-jhB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gso-6v-oNP"/>
+                        <barButtonItem key="rightBarButtonItem" image="house.fill" catalog="system" id="Gso-6v-oNP"/>
                     </navigationItem>
                     <connections>
                         <outlet property="createRoomButton" destination="Gso-6v-oNP" id="ZNg-xK-GOI"/>
@@ -290,9 +301,10 @@
     <inferredMetricsTieBreakers>
         <segue reference="cii-mw-Gi3"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="cellBackground" width="2000" height="1333.3333740234375"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="mainBackground" width="1338.6666259765625" height="2005.3333740234375"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

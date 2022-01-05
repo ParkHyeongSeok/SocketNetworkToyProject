@@ -55,4 +55,3 @@ extension Chat: Equatable {
         return lhs.messageId == rhs.messageId
     }
 }
-

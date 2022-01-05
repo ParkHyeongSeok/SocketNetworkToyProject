@@ -23,6 +23,13 @@ class RoomsViewController: UIViewController {
         bindViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        roomTableView.reloadData()
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.setHidesBackButton(true, animated: false)
+    }
+    
     private func configureUI() {
 //        view.backgroundColor = .white
     }
@@ -78,6 +85,8 @@ class RoomsViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
             .disposed(by: rx.disposeBag)
+        
+       
     }
     
     func dateToString(date: Date) -> String {
