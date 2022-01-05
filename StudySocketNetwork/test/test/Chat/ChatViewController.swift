@@ -26,7 +26,6 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setDelegate()
-        
         viewModel.message
             .observe(on: MainScheduler.asyncInstance)
             .compactMap { $0 }
@@ -54,10 +53,17 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
             .disposed(by: rx.disposeBag)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationItem.setHidesBackButton(false, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         viewModel.leaveRoom()
     }
+    
     
     func setDelegate() {
         messagesCollectionView.messagesDataSource = self
