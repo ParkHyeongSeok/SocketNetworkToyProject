@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		036184DC278328F600F1F16B /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036184DB278328F500F1F16B /* Mapper.swift */; };
+		036184E327850EDE00F1F16B /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036184E227850EDE00F1F16B /* RoomTableViewCell.swift */; };
 		0F2A74E9BD919513604C4C6D /* Pods_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C264E2688D16443FBCC12D2 /* Pods_test.framework */; };
 		240FD23726B26DE500253683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FD23626B26DE500253683 /* AppDelegate.swift */; };
 		240FD23E26B26DE500253683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240FD23C26B26DE500253683 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		036184DB278328F500F1F16B /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		036184E227850EDE00F1F16B /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		0C264E2688D16443FBCC12D2 /* Pods_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		240FD23326B26DE500253683 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		240FD23626B26DE500253683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 				2459ACDE26B7D93F0025FE9B /* HeaderReusableView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		036184E127850ECE00F1F16B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				036184E227850EDE00F1F16B /* RoomTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		07202EB0AF9F594E162C45C3 /* Frameworks */ = {
@@ -175,6 +185,7 @@
 			children = (
 				244FF85F27830C0900AAC613 /* RoomViewModel.swift */,
 				2459ACBD26B59DB90025FE9B /* RoomsViewController.swift */,
+				036184E127850ECE00F1F16B /* Cell */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -347,6 +358,7 @@
 				244FF8582783098300AAC613 /* UserDTO.swift in Sources */,
 				242B2178278267EE0025D9F8 /* ToastMessage.swift in Sources */,
 				240FD25326B26ECD00253683 /* SocketIOManager.swift in Sources */,
+				036184E327850EDE00F1F16B /* RoomTableViewCell.swift in Sources */,
 				2459ACDF26B7D93F0025FE9B /* HeaderReusableView.swift in Sources */,
 				2459ACBB26B5239D0025FE9B /* DummyData.swift in Sources */,
 				24A5563D26B5102F0020ED96 /* User.swift in Sources */,

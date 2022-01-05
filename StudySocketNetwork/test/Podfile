@@ -8,7 +8,7 @@ target 'test' do
   # Pods for test
 pod 'Socket.IO-Client-Swift'
 pod 'MessageKit'
-pod 'SDWebImage'
+pod 'Kingfisher'
 pod 'RxSwift'
 pod 'RxCocoa'
 pod 'NSObject+Rx'

@@ -24,7 +24,7 @@ class RoomsViewController: UIViewController {
     }
     
     private func configureUI() {
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
     }
     
     private func bindViewModel() {
@@ -35,9 +35,8 @@ class RoomsViewController: UIViewController {
             .disposed(by: rx.disposeBag)
         
         viewModel.rooms
-            .drive(self.roomTableView.rx.items(cellIdentifier: "roomsCell")) { index, item, cell in
-                cell.textLabel?.text = item.roomTitle
-                cell.detailTextLabel?.text = "참여자 수 : \(item.participant.count)"
+            .drive(self.roomTableView.rx.items(cellIdentifier: RoomTableViewCell.identifier, cellType: RoomTableViewCell.self)) { index, item, cell in
+                cell.updateUI(room: item)
             }
             .disposed(by: rx.disposeBag)
         
